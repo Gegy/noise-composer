@@ -45,7 +45,7 @@ public final class NoiseCompiler {
         ClassWriter writer = new ClassWriter(ClassWriter.COMPUTE_FRAMES | ClassWriter.COMPUTE_MAXS);
         writer.visit(
                 Opcodes.V1_8,
-                Opcodes.ACC_PUBLIC,
+                Opcodes.ACC_PUBLIC | Opcodes.ACC_FINAL,
                 className,
                 null,
                 Type.getInternalName(Object.class),

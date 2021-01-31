@@ -50,6 +50,22 @@ public final class NoiseDataType {
         return this.type.getOpcode(Opcodes.IDIV);
     }
 
+    public int getCmplOpcode() {
+        return this == NoiseDataType.DOUBLE ? Opcodes.DCMPL : Opcodes.FCMPL;
+    }
+
+    public int getCmpgOpcode() {
+        return this == NoiseDataType.DOUBLE ? Opcodes.DCMPG : Opcodes.FCMPG;
+    }
+
+    public int getToIntOpcode() {
+        return this == NoiseDataType.DOUBLE ? Opcodes.D2I : Opcodes.F2I;
+    }
+
+    public int getFromIntOpcode() {
+        return this == NoiseDataType.DOUBLE ? Opcodes.I2D : Opcodes.I2F;
+    }
+
     public void visitConstant(MethodVisitor method, double constant) {
         if (this == NoiseDataType.DOUBLE) {
             if (constant == 0.0) {

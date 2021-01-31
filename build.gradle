@@ -33,11 +33,21 @@ publishing {
       from components.java
 
       artifact sourcesJar {
-        classifier "sources"
+        classifier 'sources'
       }
     }
   }
   repositories {
-    mavenLocal()
+    if (project.mavenUrl) {
+      maven {
+        credentials {
+          username project.mavenUsername
+          password project.mavenPassword
+        }
+        url project.mavenUrl
+      }
+    } else {
+      mavenLocal()
+    }
   }
 }
