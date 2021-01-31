@@ -38,13 +38,15 @@ publishing {
     }
   }
   repositories {
-    if (project.mavenUrl) {
+    def env = System.getenv()
+
+    if (env.MAVEN_URL) {
       maven {
         credentials {
-          username project.mavenUsername
-          password project.mavenPassword
+          username env.MAVEN_USERNAME
+          password env.MAVEN_PASSWORD
         }
-        url project.mavenUrl
+        url env.MAVEN_URL
       }
     } else {
       mavenLocal()

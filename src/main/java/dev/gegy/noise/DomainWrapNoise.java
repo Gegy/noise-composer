@@ -19,7 +19,7 @@ public final class DomainWrapNoise<S extends NoiseSampler> implements TypedNoise
         this.size = size;
     }
 
-    public static <S extends NoiseSampler> DomainWrapNoise<S> of(Noise parent, double size) {
+    public static Noise of(Noise parent, double size) {
         return new DomainWrapNoise<>(TypedNoise.coerceUnchecked(parent), size);
     }
 
