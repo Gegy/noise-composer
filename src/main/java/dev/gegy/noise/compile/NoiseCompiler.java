@@ -17,8 +17,8 @@ import java.nio.file.Paths;
 import java.util.concurrent.atomic.AtomicInteger;
 
 public final class NoiseCompiler {
-    private static final boolean DEBUG = false;
-    private static final Path DEBUG_ROOT = Paths.get("debug");
+    private static final boolean DEBUG = System.getProperty("noisecomposer.debug", "false").equals("true");
+    private static final Path DEBUG_ROOT = Paths.get("noisecomposer");
 
     private static final AtomicInteger COUNTER = new AtomicInteger(0);
 

@@ -124,3 +124,8 @@ For example:
 Noise noise = OctaveNoise.builder().add(...).build();
 noise = noise.normalize();
 ```
+
+### Debugging
+To view the output that Noise Composer is producing, you can add `-Dnoisecomposer.debug=true` to your program launch arguments.
+This will put the compiled class files that the noise compiler creates in a folder called `noisecomposer` in your root directory.
+This can be useful if you're wanting to see how the compiled bytecode looks under the hood.
