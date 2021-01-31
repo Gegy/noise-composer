@@ -66,6 +66,10 @@ public final class NoiseDataType {
         return this == NoiseDataType.DOUBLE ? Opcodes.I2D : Opcodes.I2F;
     }
 
+    public int getDupOpcode() {
+        return this == NoiseDataType.DOUBLE ? Opcodes.DUP2 : Opcodes.DUP;
+    }
+
     public void visitConstant(MethodVisitor method, double constant) {
         if (this == NoiseDataType.DOUBLE) {
             if (constant == 0.0) {

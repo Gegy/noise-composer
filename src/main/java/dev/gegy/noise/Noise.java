@@ -54,6 +54,9 @@ public interface Noise {
     }
 
     default Noise pow(double right) {
+        if ((int) right == right && right >= 1.0 && right <= 5.0) {
+            return NoiseOps.pow(this, (int) right);
+        }
         return this.pow(constant(right));
     }
 

@@ -79,6 +79,15 @@ public final class NoiseOps {
         return TypedNoise.createBinary(left, right, PowNoise::new);
     }
 
+    public static Noise pow(Noise parent, int power) {
+        NoiseRange range = parent.getRange();
+        if (range.equals(NoiseRange.ONE)) {
+            return Noise.constant(1.0);
+        }
+
+        return TypedNoise.createUnary(parent, noise -> new IntPowNoise<>(noise, power));
+    }
+
     public static Noise abs(Noise parent) {
         NoiseRange range = parent.getRange();
         if (range.min < 0.0) {
